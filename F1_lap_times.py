@@ -17,10 +17,10 @@ In F1 distance between drivers measures by time
 """
 
 # Origin database
-lap_times = pd.read_csv('lap_times.csv')
+lap_times = pd.read_csv('databases\lap_times.csv')
 
 # Dropping useless rows
-lap_times = lap_times.drop(['milliseconds', 'driverId'], axis=1)
+lap_times = lap_times.drop(['milliseconds', 'driverId'], axis=1)[:20]
 
 
 def delta_to_ms(delta: str):
@@ -119,7 +119,7 @@ def interval(id):
 
 
 # Intervals
-lap_times['interval'] = [interval(i) for i in length]
+lap_times['interval'] = [interval(i) for i in lap_times.index.values]
 
 # Intervals in milliseconds
 lap_times['ms'] = lap_times['interval'].map(delta_to_ms)
