@@ -20,7 +20,7 @@ In F1 distance between drivers measures by time
 lap_times = pd.read_csv('databases\lap_times.csv')
 
 # Dropping useless rows
-lap_times = lap_times.drop(['milliseconds', 'driverId'], axis=1)[:20]
+lap_times = lap_times.drop(['milliseconds', 'driverId'], axis=1)
 
 
 def delta_to_ms(delta: str):
